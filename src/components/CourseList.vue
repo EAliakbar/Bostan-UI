@@ -4,7 +4,7 @@
             <input type="text" class="searchinput filter" placeholder="جستجو..."/>
         </div>
         <div class="list">
-            <ul id="course-group-list" v-bind:style="{height: listHeight }">
+            <ul id="course-group-list" :style="{height: listHeight + 'px'}">
 
             </ul>
         </div>
@@ -17,8 +17,8 @@
         name: "CourseList",
         computed: {
             listHeight: function() {
-                return Math.min($(window).height() - 255, $(".grid").height() - 125)
-                // return 200 + 'px'
+                // return Math.min(window.height() - 255, $(".grid").height() - 125)
+                return 200;
             }
         }
     }
