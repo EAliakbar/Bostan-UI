@@ -1,17 +1,294 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>bostan-ui</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but bostan-ui doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+<html>
+<head>
+    <title>TermInator</title>
+    <link rel="stylesheet" href="/css/main.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="/css/grid.css" type="text/css" media="screen"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/css/summary.css" media="screen"/>
+    <link rel="stylesheet" href="/css/jquery.modal.css" media="screen"/>
+
+</head>
+
+<body>
+<div id="wrapper">
+    <div id="header">
+        <div id="userinfo">
+            <nobr>94521288 / <a href="/logout/">خروج</a></nobr>
+        </div>
+        <div id="logo"></div>
+    </div>
+    <div id="content">
+        <div class="top">
+            <div class="top-right"></div>
+            <div class="top-left"></div>
+            <div class="top-center"></div>
+        </div>
+
+        <div class="center">
+            <div id="rightbar">
+                <ul>
+                    <li><a href="/">
+                        <div class="tab-icon home-icon"></div>
+                    </a></li>
+                    <li><a href="/schedule/" class="active">
+                        <div class="tab-icon calendar-icon"></div>
+                    </a></li>
+                    <li><a href="/schedule/summary/">
+                        <div class="tab-icon list-icon"></div>
+                    </a></li>
+                    <!--<li><a href="#"><div class="tab-icon settings-icon"></div></a></li>-->
+                </ul>
+            </div>
+            <div id="main-content">
+                <div id="sidebar">
+
+                    <div class="schedule-header">تعداد واحدها: <span id="unitsum">0</span>
+                        <small style="font-weight:normal;"><br/><a style="color:#999;" href="/schedule/summary/">(مشاهده
+                            جدول واحد‌های انتخابی)</a></small>
+                        <!--<small style="font-weight:normal;"><br/><a style="color:#999;" href="http://ce.sharif.edu/~allahverdi/courses/" target="_blank">نمایش لحظه‌ای ظرفیت دروس</a></small>-->
+                    </div>
+
+                    <select class="combobox" id="department-select">
+                        <option value="-2">انتخاب دانشکده...</option>
+                        <option disabled="disabled"></option>
+                        <option value="-1">درسهای من</option>
+                        <option disabled="disabled"></option>
+
+                        <option value="12">مهندسی برق</option>
+
+                        <option value="13">مهندسی راه‌آهن</option>
+
+                        <option value="14">علوم ریاضی</option>
+
+                        <option value="15">مهندسی صنایع</option>
+
+                        <option value="16">فیزیک</option>
+
+                        <option value="17">مهندسی مواد و متالورژی</option>
+
+                        <option value="18">مهندسی معماری</option>
+
+                        <option value="19">مهندسی مکانیک</option>
+
+                        <option value="20">مهندسی شیمی، نفت و گاز</option>
+
+                        <option value="21">مهندسی عمران</option>
+
+                        <option value="22">مهندسی کامپیوتر</option>
+
+                        <option value="27">معارف اسلامی</option>
+
+                        <option value="28">زبان</option>
+
+                        <option value="29">شیمی</option>
+
+                        <option value="90">عمومی</option>
+
+                    </select>
+                    <div class="course-list">
+                        <div class="searchbox">
+                            <input type="text" class="searchinput filter" placeholder="جستجو..."/>
+                        </div>
+                        <div class="list">
+                            <ul id="course-group-list">
+
+                            </ul>
+                        </div>
+                        <div class="bottom"></div>
+                    </div>
+
+                    <div id="loading"><img src="/static_root/images/loading.gif"/></div>
+
+                </div>
+                <div id="content-body">
+
+                    <div class="grid">
+                        <div class="hour-column">
+
+                            7<br/>
+
+                            8<br/>
+
+                            9<br/>
+
+                            10<br/>
+
+                            11<br/>
+
+                            12<br/>
+
+                            13<br/>
+
+                            14<br/>
+
+                            15<br/>
+
+                            16<br/>
+
+                            17<br/>
+
+                            18<br/>
+
+                            19<br/>
+
+                            20<br/>
+
+                        </div>
+                        <div class="week-container">
+                            <div class="column">
+                                <div class="header">
+                                    <img src="/images/weekdays/sat.png"/>
+                                </div>
+                                <div id="weekday-0" class="events">
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="header">
+                                    <img src="/images/weekdays/sun.png"/>
+                                </div>
+                                <div id="weekday-1" class="events">
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="header">
+                                    <img src="/images/weekdays/mon.png"/>
+                                </div>
+                                <div id="weekday-2" class="events">
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="header">
+                                    <img src="/images/weekdays/tue.png"/>
+                                </div>
+                                <div id="weekday-3" class="events">
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="header">
+                                    <img src="/images/weekdays/wed.png"/>
+                                </div>
+                                <div id="weekday-4" class="events">
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="header">
+                                    <img src="/images/weekdays/thu.png"/>
+                                </div>
+                                <div id="weekday-5" class="events">
+                                </div>
+                            </div>
+                            <br style="clear:both;"/>
+                        </div>
+                    </div>
+
+                </div>
+                <br style="clear:both;"/>
+            </div>
+        </div>
+
+        <div class="bottom">
+            <div class="bottom-right"></div>
+            <div class="bottom-left"></div>
+            <div class="bottom-center"></div>
+        </div>
+    </div>
+    <div id="footer">
+        &copy;2012&ndash;2017, TermInator. Brought to you by <a href="http://sadjad.org" target="_blank">Sadjad
+        Fouladi</a> and <a href="http://kamyarinfinity.me" target="_blank">Kamyar Allahverdi</a>.<br/>
+        <small>The legend says: "the problem is choice."</small>
+    </div>
+</div>
+<script src="/scripts/jquery-1.7.1.js" type="text/javascript"></script>
+
+<script src="/scripts/jquery.simpletip.pack.js" type="text/javascript"></script>
+<script src="/scripts/sprintf.js" type="text/javascript"></script>
+<script src="/scripts/waypoints.min.js" type="text/javascript"></script>
+<script src="/scripts/jquery.liveFilter.js" type="text/javascript"></script>
+<script src="/scripts/grid.js" type="text/javascript"></script>
+<script src="/scripts/jquery.modal.min.js" type="text/javascript"></script>
+<script src="/scripts/courseinfo.js" type="text/javascript"></script>
+<script type="text/javascript">
+
+    /*$("#sidebar").waypoint(function(event, direction) {
+        if(direction === 'down') {
+            $("#sidebar").addClass('fixed-sidebar');
+        }
+        else {
+            $("#sidebar").removeClass('fixed-sidebar');
+        }
+    }, {
+
+    });*/
+    //$(".list").height(Math.min($(window).height() - 200, $(".grid").height() - 50));
+    $(".list ul").height(Math.min($(window).height() - 255, $(".grid").height() - 125));
+    $("ul#course-group-list").liveFilter('basic');
+
+    var tempAddedItems = [{
+        "info": "",
+        "course_id": "28262-3",
+        "course_number": "28262",
+        "name": "\u0645\u0642\u0627\u0648\u0645\u062a \u0645\u0635\u0627\u0644\u062d \u06f1",
+        "units": 3,
+        "capacity": 30,
+        "instructor": "\u0641\u0645\u06cc\u062f\u0627 \u0641\u0644\u0627\u062d \u0631\u062c\u0628 \u0632\u0627\u062f\u0647",
+        "class_times": "[{\"start\": 9.0, \"end\": 10.5, \"day\": 3}, {\"start\": 9.0, \"end\": 10.5, \"day\": 1}]",
+        "id": 36176,
+        "exam_time": "15 \u062f\u06cc 1397\u060c 9:00"
+    }, {
+        "info": "\u06af\u0631\u0648\u0647 \u0628\u0631\u0627\u062f\u0631\u0627\u0646\u060c \u062f\u0642\u062a \u0634\u0648\u062f \u0628\u0627 \u062f\u0631\u0648\u0633 \u061b \u0627\u062e\u0644\u0627\u0642 \u0627\u0633\u0644\u0627\u0645\u06cc \u06cc\u06a9\u061b \u0641\u0644\u0633\u0641\u0647 \u0627\u062e\u0644\u0627\u0642 \u061b\u0639\u0631\u0641\u0627\u0646 \u0639\u0645\u0644\u06cc \u062f\u0631 \u0627\u0633\u0644\u0627\u0645 \u061b \u0645\u0634\u062a\u0631\u06a9 \u0627\u0633\u062a. \u0633\u0642\u0641 \u063a\u06cc\u0628\u062a \u063a\u06cc\u0631 \u0645\u062c\u0627\u0632 \u062f\u0631 \u062f\u0631\u0648\u0633 \u0645\u0631\u06a9\u0632 \u0645\u0639\u0627\u0631\u0641 \u0628\u0627 \u0627\u062d\u062a\u0633\u0627\u0628 \u062c\u0644\u0633\u0627\u062a \u0642\u0628\u0644 \u0627\u0632 \u062a\u0631\u0645\u06cc\u0645 \u0645\u06cc\u0628\u0627\u0634\u062f.",
+        "course_id": "37127-4",
+        "course_number": "37127",
+        "name": "\u0622\u06cc\u06cc\u0646 \u0632\u0646\u062f\u06af\u06cc",
+        "units": 2,
+        "capacity": 40,
+        "instructor": "\u0639\u0644\u06cc\u0631\u0636\u0627 \u0645\u0648\u062d\u062f\u0646\u0698\u0627\u062f",
+        "class_times": "[{\"start\": 8.0, \"end\": 10.0, \"day\": 2}]",
+        "id": 36376,
+        "exam_time": "19 \u062f\u06cc 1397\u060c 13:00"
+    }, {
+        "info": "",
+        "course_id": "40124-1",
+        "course_number": "40124",
+        "name": "\u0645\u0628\u0627\u0646\u06cc \u0645\u062f\u0627\u0631\u0647\u0627\u06cc \u0627\u0644\u06a9\u062a\u0631\u06cc\u06a9\u06cc \u0648 \u0627\u0644\u06a9\u062a\u0631\u0648\u0646\u06cc\u06a9\u06cc",
+        "units": 3,
+        "capacity": 48,
+        "instructor": "\u0633\u0645\u06cc\u0647 \u06a9\u0648\u0647\u06cc",
+        "class_times": "[{\"start\": 10.5, \"end\": 12.0, \"day\": 2}, {\"start\": 10.5, \"end\": 12.0, \"day\": 0}]",
+        "id": 36442,
+        "exam_time": "24 \u062f\u06cc 1397\u060c 15:00"
+    }, {
+        "info": "\u062a\u0627\u0631\u06cc\u062e \u0627\u0645\u062a\u062d\u0627\u0646 \u0645\u06cc\u0627\u0646 \u062a\u0631\u0645 97/9/15 \u0633\u0627\u0639\u062a 9 \u0635\u0628\u062d \u0645\u06cc \u0628\u0627\u0634\u062f.\n\u067e\u0627\u06cc\u062a\u0648\u0646 (\u0645. \u0634\u06cc\u0645\u06cc\u060c \u0634\u06cc\u0645\u06cc\u060c \u0639\u0645\u0631\u0627\u0646\u060c \u0639\u0644\u0645 \u0648 \u0645\u0648\u0627\u062f)",
+        "course_id": "40153-11",
+        "course_number": "40153",
+        "name": "\u0645\u0628\u0627\u0646\u06cc \u0628\u0631\u0646\u0627\u0645\u0647\u200c\u0633\u0627\u0632\u06cc",
+        "units": 3,
+        "capacity": 40,
+        "instructor": "\u0647\u0627\u062f\u06cc \u0637\u0627\u0644\u0628\u06cc",
+        "class_times": "[{\"start\": 13.5, \"end\": 15.0, \"day\": 2}, {\"start\": 13.5, \"end\": 15.0, \"day\": 0}]",
+        "id": 36448,
+        "exam_time": "23 \u062f\u06cc 1397\u060c 9:00"
+    }, {
+        "info": "\u062a\u0627\u0631\u06cc\u062e \u0627\u0646\u062a\u062d\u0627\u0646 \u0645\u06cc\u0627\u0646 \u062a\u0631\u0645 97/9/15 \u0633\u0627\u0639\u062a 9 \u0635\u0628\u062d \u0645\u06cc \u0628\u0627\u0634\u062f.\n\u0633\u06cc (\u062f\u0627\u0646\u0634\u062c\u0648\u06cc\u0627\u0646 \u0645. \u06a9\u0627\u0645\u067e\u06cc\u0648\u062a\u0631)",
+        "course_id": "40153-1",
+        "course_number": "40153",
+        "name": "\u0645\u0628\u0627\u0646\u06cc \u0628\u0631\u0646\u0627\u0645\u0647\u200c\u0633\u0627\u0632\u06cc",
+        "units": 3,
+        "capacity": 10,
+        "instructor": "\u0645\u0647\u062f\u06cc \u0645\u0635\u0637\u0641\u06cc \u0632\u0627\u062f\u0647",
+        "class_times": "[{\"start\": 16.5, \"end\": 18.0, \"day\": 3}, {\"start\": 16.5, \"end\": 18.0, \"day\": 1}]",
+        "id": 36451,
+        "exam_time": "23 \u062f\u06cc 1397\u060c 9:00"
+    }];
+
+
+    for (i = 0; i < tempAddedItems.length; i++) {
+        grid.addCourse(tempAddedItems[i], false, true);
+    }
+    grid.updateUnitsCount(false);
+</script>
+
 </html>
+
