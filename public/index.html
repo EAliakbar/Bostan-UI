@@ -43,87 +43,25 @@
                 </ul>
             </div>
             <div id="main-content">
-                <div id="sidebar">
 
-                    <div class="schedule-header">تعداد واحدها: <span id="unitsum">0</span>
-                        <small style="font-weight:normal;"><br/><a style="color:#999;" href="/schedule/summary/">(مشاهده
-                            جدول واحد‌های انتخابی)</a></small>
-                        <!--<small style="font-weight:normal;"><br/><a style="color:#999;" href="http://ce.sharif.edu/~allahverdi/courses/" target="_blank">نمایش لحظه‌ای ظرفیت دروس</a></small>-->
-                    </div>
+                <div id="app"></div>
 
-                    <select class="combobox" id="department-select">
-                        <option value="-2">انتخاب دانشکده...</option>
-                        <option disabled="disabled"></option>
-                        <option value="-1">درسهای من</option>
-                        <option disabled="disabled"></option>
-
-                        <option value="12">مهندسی برق</option>
-
-                        <option value="13">مهندسی راه‌آهن</option>
-
-                        <option value="14">علوم ریاضی</option>
-
-                        <option value="15">مهندسی صنایع</option>
-
-                        <option value="16">فیزیک</option>
-
-                        <option value="17">مهندسی مواد و متالورژی</option>
-
-                        <option value="18">مهندسی معماری</option>
-
-                        <option value="19">مهندسی مکانیک</option>
-
-                        <option value="20">مهندسی شیمی، نفت و گاز</option>
-
-                        <option value="21">مهندسی عمران</option>
-
-                        <option value="22">مهندسی کامپیوتر</option>
-
-                        <option value="27">معارف اسلامی</option>
-
-                        <option value="28">زبان</option>
-
-                        <option value="29">شیمی</option>
-
-                        <option value="90">عمومی</option>
-
-                    </select>
-                    <div id="app"></div>
-
-                    <div id="loading"><img src="/static_root/images/loading.gif"/></div>
-
-                </div>
                 <div id="content-body">
-
-                    <div class="grid">
+                    <div class="grid" id="grid">
                         <div class="hour-column">
-
                             7<br/>
-
                             8<br/>
-
                             9<br/>
-
                             10<br/>
-
                             11<br/>
-
                             12<br/>
-
                             13<br/>
-
                             14<br/>
-
                             15<br/>
-
                             16<br/>
-
                             17<br/>
-
                             18<br/>
-
                             19<br/>
-
                             20<br/>
 
                         </div>
@@ -212,8 +150,6 @@
     }, {
 
     });*/
-    //$(".list").height(Math.min($(window).height() - 200, $(".grid").height() - 50));
-    $(".list ul").height(Math.min($(window).height() - 255, $(".grid").height() - 125));
     $("ul#course-group-list").liveFilter('basic');
 
     var tempAddedItems = [{
@@ -279,6 +215,6 @@
     }
     grid.updateUnitsCount(false);
 </script>
-
+</body>
 </html>
 

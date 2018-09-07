@@ -1,16 +1,16 @@
 <template>
     <div id="app">
-        <CourseList></CourseList>
+        <side-bar></side-bar>
     </div>
 </template>
 
 <script>
-    import CourseList from './components/CourseList.vue'
+    import SideBar from './components/SideBar.vue'
 
     export default {
         name: 'app',
         components: {
-            CourseList
+            'side-bar': SideBar
         }
     }
 </script>
