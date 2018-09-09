@@ -71,7 +71,6 @@
                     var vm = this;
                     axios.get('http://127.0.0.1:8000/courses/list/' + newDepartment + '/')
                         .then(function (response) {
-                            console.log(response.data);
                             vm.courseList = response.data
                         })
                         .catch(function () {
