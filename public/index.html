@@ -7,8 +7,8 @@
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
-    <link rel="stylesheet" href="/css/summary.css" media="screen"/>
-    <link rel="stylesheet" href="/css/jquery.modal.css" media="screen"/>
+    <!--<link rel="stylesheet" href="/css/summary.css" media="screen"/>-->
+    <!--<link rel="stylesheet" href="/css/jquery.modal.css" media="screen"/>-->
 
 </head>
 
@@ -46,73 +46,6 @@
 
                 <div id="app"></div>
 
-                <div id="content-body">
-                    <div class="grid" id="grid">
-                        <div class="hour-column">
-                            7<br/>
-                            8<br/>
-                            9<br/>
-                            10<br/>
-                            11<br/>
-                            12<br/>
-                            13<br/>
-                            14<br/>
-                            15<br/>
-                            16<br/>
-                            17<br/>
-                            18<br/>
-                            19<br/>
-                            20<br/>
-
-                        </div>
-                        <div class="week-container">
-                            <div class="column">
-                                <div class="header">
-                                    <img src="/images/weekdays/sat.png"/>
-                                </div>
-                                <div id="weekday-0" class="events">
-                                </div>
-                            </div>
-                            <div class="column">
-                                <div class="header">
-                                    <img src="/images/weekdays/sun.png"/>
-                                </div>
-                                <div id="weekday-1" class="events">
-                                </div>
-                            </div>
-                            <div class="column">
-                                <div class="header">
-                                    <img src="/images/weekdays/mon.png"/>
-                                </div>
-                                <div id="weekday-2" class="events">
-                                </div>
-                            </div>
-                            <div class="column">
-                                <div class="header">
-                                    <img src="/images/weekdays/tue.png"/>
-                                </div>
-                                <div id="weekday-3" class="events">
-                                </div>
-                            </div>
-                            <div class="column">
-                                <div class="header">
-                                    <img src="/images/weekdays/wed.png"/>
-                                </div>
-                                <div id="weekday-4" class="events">
-                                </div>
-                            </div>
-                            <div class="column">
-                                <div class="header">
-                                    <img src="/images/weekdays/thu.png"/>
-                                </div>
-                                <div id="weekday-5" class="events">
-                                </div>
-                            </div>
-                            <br style="clear:both;"/>
-                        </div>
-                    </div>
-
-                </div>
                 <br style="clear:both;"/>
             </div>
         </div>
@@ -129,92 +62,7 @@
         <small>The legend says: "the problem is choice."</small>
     </div>
 </div>
-<script src="/scripts/jquery-1.7.1.js" type="text/javascript"></script>
 
-<script src="/scripts/jquery.simpletip.pack.js" type="text/javascript"></script>
-<script src="/scripts/sprintf.js" type="text/javascript"></script>
-<script src="/scripts/waypoints.min.js" type="text/javascript"></script>
-<script src="/scripts/jquery.liveFilter.js" type="text/javascript"></script>
-<script src="/scripts/grid.js" type="text/javascript"></script>
-<script src="/scripts/jquery.modal.min.js" type="text/javascript"></script>
-<script src="/scripts/courseinfo.js" type="text/javascript"></script>
-<script type="text/javascript">
-
-    /*$("#sidebar").waypoint(function(event, direction) {
-        if(direction === 'down') {
-            $("#sidebar").addClass('fixed-sidebar');
-        }
-        else {
-            $("#sidebar").removeClass('fixed-sidebar');
-        }
-    }, {
-
-    });*/
-    $("ul#course-group-list").liveFilter('basic');
-
-    var tempAddedItems = [{
-        "info": "",
-        "course_id": "28262-3",
-        "course_number": "28262",
-        "name": "\u0645\u0642\u0627\u0648\u0645\u062a \u0645\u0635\u0627\u0644\u062d \u06f1",
-        "units": 3,
-        "capacity": 30,
-        "instructor": "\u0641\u0645\u06cc\u062f\u0627 \u0641\u0644\u0627\u062d \u0631\u062c\u0628 \u0632\u0627\u062f\u0647",
-        "class_times": "[{\"start\": 9.0, \"end\": 10.5, \"day\": 3}, {\"start\": 9.0, \"end\": 10.5, \"day\": 1}]",
-        "id": 36176,
-        "exam_time": "15 \u062f\u06cc 1397\u060c 9:00"
-    }, {
-        "info": "\u06af\u0631\u0648\u0647 \u0628\u0631\u0627\u062f\u0631\u0627\u0646\u060c \u062f\u0642\u062a \u0634\u0648\u062f \u0628\u0627 \u062f\u0631\u0648\u0633 \u061b \u0627\u062e\u0644\u0627\u0642 \u0627\u0633\u0644\u0627\u0645\u06cc \u06cc\u06a9\u061b \u0641\u0644\u0633\u0641\u0647 \u0627\u062e\u0644\u0627\u0642 \u061b\u0639\u0631\u0641\u0627\u0646 \u0639\u0645\u0644\u06cc \u062f\u0631 \u0627\u0633\u0644\u0627\u0645 \u061b \u0645\u0634\u062a\u0631\u06a9 \u0627\u0633\u062a. \u0633\u0642\u0641 \u063a\u06cc\u0628\u062a \u063a\u06cc\u0631 \u0645\u062c\u0627\u0632 \u062f\u0631 \u062f\u0631\u0648\u0633 \u0645\u0631\u06a9\u0632 \u0645\u0639\u0627\u0631\u0641 \u0628\u0627 \u0627\u062d\u062a\u0633\u0627\u0628 \u062c\u0644\u0633\u0627\u062a \u0642\u0628\u0644 \u0627\u0632 \u062a\u0631\u0645\u06cc\u0645 \u0645\u06cc\u0628\u0627\u0634\u062f.",
-        "course_id": "37127-4",
-        "course_number": "37127",
-        "name": "\u0622\u06cc\u06cc\u0646 \u0632\u0646\u062f\u06af\u06cc",
-        "units": 2,
-        "capacity": 40,
-        "instructor": "\u0639\u0644\u06cc\u0631\u0636\u0627 \u0645\u0648\u062d\u062f\u0646\u0698\u0627\u062f",
-        "class_times": "[{\"start\": 8.0, \"end\": 10.0, \"day\": 2}]",
-        "id": 36376,
-        "exam_time": "19 \u062f\u06cc 1397\u060c 13:00"
-    }, {
-        "info": "",
-        "course_id": "40124-1",
-        "course_number": "40124",
-        "name": "\u0645\u0628\u0627\u0646\u06cc \u0645\u062f\u0627\u0631\u0647\u0627\u06cc \u0627\u0644\u06a9\u062a\u0631\u06cc\u06a9\u06cc \u0648 \u0627\u0644\u06a9\u062a\u0631\u0648\u0646\u06cc\u06a9\u06cc",
-        "units": 3,
-        "capacity": 48,
-        "instructor": "\u0633\u0645\u06cc\u0647 \u06a9\u0648\u0647\u06cc",
-        "class_times": "[{\"start\": 10.5, \"end\": 12.0, \"day\": 2}, {\"start\": 10.5, \"end\": 12.0, \"day\": 0}]",
-        "id": 36442,
-        "exam_time": "24 \u062f\u06cc 1397\u060c 15:00"
-    }, {
-        "info": "\u062a\u0627\u0631\u06cc\u062e \u0627\u0645\u062a\u062d\u0627\u0646 \u0645\u06cc\u0627\u0646 \u062a\u0631\u0645 97/9/15 \u0633\u0627\u0639\u062a 9 \u0635\u0628\u062d \u0645\u06cc \u0628\u0627\u0634\u062f.\n\u067e\u0627\u06cc\u062a\u0648\u0646 (\u0645. \u0634\u06cc\u0645\u06cc\u060c \u0634\u06cc\u0645\u06cc\u060c \u0639\u0645\u0631\u0627\u0646\u060c \u0639\u0644\u0645 \u0648 \u0645\u0648\u0627\u062f)",
-        "course_id": "40153-11",
-        "course_number": "40153",
-        "name": "\u0645\u0628\u0627\u0646\u06cc \u0628\u0631\u0646\u0627\u0645\u0647\u200c\u0633\u0627\u0632\u06cc",
-        "units": 3,
-        "capacity": 40,
-        "instructor": "\u0647\u0627\u062f\u06cc \u0637\u0627\u0644\u0628\u06cc",
-        "class_times": "[{\"start\": 13.5, \"end\": 15.0, \"day\": 2}, {\"start\": 13.5, \"end\": 15.0, \"day\": 0}]",
-        "id": 36448,
-        "exam_time": "23 \u062f\u06cc 1397\u060c 9:00"
-    }, {
-        "info": "\u062a\u0627\u0631\u06cc\u062e \u0627\u0646\u062a\u062d\u0627\u0646 \u0645\u06cc\u0627\u0646 \u062a\u0631\u0645 97/9/15 \u0633\u0627\u0639\u062a 9 \u0635\u0628\u062d \u0645\u06cc \u0628\u0627\u0634\u062f.\n\u0633\u06cc (\u062f\u0627\u0646\u0634\u062c\u0648\u06cc\u0627\u0646 \u0645. \u06a9\u0627\u0645\u067e\u06cc\u0648\u062a\u0631)",
-        "course_id": "40153-1",
-        "course_number": "40153",
-        "name": "\u0645\u0628\u0627\u0646\u06cc \u0628\u0631\u0646\u0627\u0645\u0647\u200c\u0633\u0627\u0632\u06cc",
-        "units": 3,
-        "capacity": 10,
-        "instructor": "\u0645\u0647\u062f\u06cc \u0645\u0635\u0637\u0641\u06cc \u0632\u0627\u062f\u0647",
-        "class_times": "[{\"start\": 16.5, \"end\": 18.0, \"day\": 3}, {\"start\": 16.5, \"end\": 18.0, \"day\": 1}]",
-        "id": 36451,
-        "exam_time": "23 \u062f\u06cc 1397\u060c 9:00"
-    }];
-
-
-    for (i = 0; i < tempAddedItems.length; i++) {
-        grid.addCourse(tempAddedItems[i], false, true);
-    }
-    grid.updateUnitsCount(false);
-</script>
 </body>
 </html>
 

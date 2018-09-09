@@ -1,6 +1,12 @@
 <template>
-    <li >
-        <a href="#" v-tooltip="{ html: tooltip_name }">{{course_name}}</a>
+    <li v-tooltip="{ html: tooltip_name }">
+        <a href="#"
+           @click="zzz"
+           @mouseenter="xxx"
+           @mouseleave="yyy"
+        >
+            {{course_name}}
+        </a>
         <div v-bind:id="tooltip_name">
             <b>{{course_name}}</b>
             ({{full_id}})<br>
@@ -17,6 +23,18 @@
         computed: {
             tooltip_name: function () {
                 return `tooltipContent-${this.$vnode.key}`
+            }
+        },
+        methods: {
+
+            zzz: function () {
+                this.$root.$emit('addCourse', this.$props)
+            },
+            xxx: function () {
+                this.$root.$emit('previewCourse', this.$props)
+            },
+            yyy: function () {
+                this.$root.$emit('clearPreview')
             }
         }
     }
