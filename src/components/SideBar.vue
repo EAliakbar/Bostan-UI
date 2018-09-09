@@ -33,7 +33,7 @@
             <div class="bottom"></div>
         </div>
 
-        <div id="loading"><img src="/images/loading.gif"/></div>
+        <!--<div id="loading"><img src="/images/loading.gif"/></div>-->
 
     </div>
 </template>
@@ -51,13 +51,13 @@
             return {
                 departments: [],
                 selectedDepartment: '',
-                courseList: []
+                courseList: [],
             }
         },
         computed: {
             listHeight: function () {
                 // todo: get height value from grid module
-                return Math.min(window.innerHeight - 255, document.getElementById('grid').clientHeight - 125)
+                return Math.min(window.innerHeight - 255, 613)
                 // return 200;
             }
         },
